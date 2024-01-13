@@ -1,0 +1,676 @@
+// //route masyarakat
+// Route::group(['middleware' => ['auth','ceklevel:masyarakat']], function(){
+
+// //page controller masyarakat
+// Route::get('/beranda', [DashboardController::class, 'index'])
+//     ->name('beranda');
+
+// Route::get('/home', [DashboardController::class, 'home'])
+//     ->name('home');
+
+// //page controller masyarakat
+
+// });
+// //route masyarakat
+
+
+
+// //page petugas
+// Route::get('/dashboard', [PageController::class, 'index'])
+//     ->name('dashboard');
+// //page petugas
+
+//insert
+    public function store2(Request $request){
+        $this->validate($request, [
+            // 'id' => 'required',
+            // 'kode' => 'required',
+            'nik' => 'required',
+            'no_kk' => 'required',
+            'nama' => 'required',
+            'tgl_lahir' => 'required',
+            'gender' => 'required',
+            'alamat' => 'required',
+            'banjar' => 'required',
+            'desa' => 'required',
+            'kec' => 'required',
+            'kab' => 'required',
+            'provinsi' => 'required',
+            'negara' => 'required',
+            'status' => 'required',
+            'keterangan' => 'nullable',
+        ]);
+
+        $penduduk = DB::table('register')->insert([
+            // 'id' => $request->id,
+            // 'kode' => $request->kode,
+            'nik'     => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'status'   => $request->status,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+         
+        if($penduduk){
+            //redirect dengan pesan sukses
+            return redirect()->route('datapindah')->with(['success' => 'Data Berhasil Disimpan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('datapindah')->with(['error' => 'Data Gagal Disimpan!']);
+        }
+    }
+    //end insert
+
+    //insert
+    public function store1(Request $request){
+        $this->validate($request, [
+            // 'id' => 'required',
+            // 'kode' => 'required',
+            'nik' => 'required',
+            'no_kk' => 'required',
+            'nama' => 'required',
+            'tgl_lahir' => 'required',
+            'gender' => 'required',
+            'alamat' => 'required',
+            'banjar' => 'required',
+            'desa' => 'required',
+            'kec' => 'required',
+            'kab' => 'required',
+            'provinsi' => 'required',
+            'negara' => 'required',
+            'status' => 'required',
+            'keterangan' => 'nullable',
+        ]);
+
+       
+
+
+        $penduduk = DB::table('register')->insert([
+            // 'id' => $request->id,
+            // 'kode' => $request->kode,
+            'nik'     => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'status'   => $request->status,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+         
+        if($penduduk){
+            //redirect dengan pesan sukses
+            return redirect()->route('datakematian')->with(['success' => 'Data Berhasil Disimpan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('datakematian')->with(['error' => 'Data Gagal Disimpan!']);
+        }
+    }
+    //end insert
+
+
+    public function store(Request $request){
+        $this->validate($request, [
+            // 'id' => 'required',
+            // 'kode' => 'required',
+            'nik' => 'required',
+            'no_kk' => 'required',
+            'nama' => 'required',
+            'tgl_lahir' => 'required',
+            'gender' => 'required',
+            'alamat' => 'required',
+            'banjar' => 'required',
+            'desa' => 'required',
+            'kec' => 'required',
+            'kab' => 'required',
+            'provinsi' => 'required',
+            'negara' => 'required',
+            'status' => 'required',
+            'keterangan' => 'nullable',
+        ]);
+
+       
+
+
+        $penduduk = DB::table('register')->insert([
+            // 'id' => $request->id,
+            // 'kode' => $request->kode,
+            'nik'     => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'status'   => $request->status,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+         
+        if($penduduk){
+            //redirect dengan pesan sukses
+            return redirect()->route('datakelahiran')->with(['success' => 'Data Berhasil Disimpan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('datakelahiran')->with(['error' => 'Data Gagal Disimpan!']);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('register')->where('kode',$request->kode)->update([
+            'kode'     => $request->kode,
+            'nik'     => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'status'   => $request->status,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+
+        // auth()->attempt($request->only('username', 'password'));
+
+        return redirect()->route('datakelahiran')->with('success', 'Berhasil Update User');
+    }
+    //end
+
+    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    {{-- <h6 class="collapse-header">Data:</h6>
+                    <a class="collapse-item" href="{{ route('datapenduduk') }}">Penduduk</a>
+                    <a class="collapse-item" href="{{ route('datakelahiran') }}">Kelahiran</a>
+                    <a class="collapse-item" href="{{ route('datakematian') }}">Kematian</a>
+                    <a class="collapse-item" href="{{ route('datapindah') }}">Pindah</a>
+                    <a class="collapse-item" href="{{ route('datapendatang') }}">Pendatang</a>
+                    <a class="collapse-item" href="{{ route('datakeluarga') }}">Keluarga</a> --}}
+                </div>
+            </div>
+
+
+            <!--Start Modal Edit-->
+            <div class="modal fade" id="update{{$data->id_register}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Edit Data Kelahiran</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                                    </div>
+                                    <form action="/datakelahiran/update/{{$data->id_register}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-body">                            
+
+                                        <div class="mb-1">
+                                            <label for="nik" class="col-form-label font-label">NIK:</label>
+                                            <input type="number" class="form-control" id="nik" name="nik" value="{{ $data->nik }}" readonly>
+                                        </div>
+
+                                        <div class="mb-1">
+                                            <label for="no_kk" class="col-form-label font-label">No KK:</label>
+                                            <input type="number" class="form-control" id="no_kk" name="no_kk" value="{{ $data->no_kk }}" readonly>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="mb-1 col-md-6">
+                                                <label for="nama" class="col-form-label font-label">Nama:</label>
+                                                <input type="text" class="form-control" id="nama" name="nama" value="{{ $data->nama }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="tgl_lahir" class="col-form-label font-label">Tgl. Lahir:</label>
+                                                <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="{{ $data->tgl_lahir }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="gender" class="col-form-label font-label">Jenis Kelamin:</label>
+                                                <select name="gender" class="form-control" id="">
+                                                    <option value="{{ $data->gender }}">{{$data->gender}}</option>
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            
+                                            <div class="mb-1 col-md-4">
+                                                <label for="banjar" class="col-form-label font-label">Banjar:</label>
+                                                <input type="text" class="form-control" id="banjar" name="banjar" value="{{ $data->banjar }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-6">
+                                                <label for="alamat" class="col-form-label font-label">Alamat:</label>
+                                                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $data->alamat }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-2">
+                                                <label for="value" class="col-form-label font-label">Status:</label>
+                                                <select name="value" class="form-control" required>
+                                                    <option value="{{ $data->value }}">@if ($data->value == '1')
+                                                        Aktif
+                                                        @else
+                                                        Nonaktif
+                                                        @endif
+                                                    </option>
+                                                    <option value="">--Pilih Status--</option>
+                                                    <option value="1">Aktif</option>
+                                                    <option value="0">Nonaktif</option>
+                                                </select> 
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="row d-none">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="desa" class="col-form-label font-label">Desa:</label>
+                                                <input type="hidden" class="form-control" id="desa" name="desa" value="{{$data->desa}}">
+                                                <input type="text" class="form-control" id="desa" name="desa" value="{{$data->desa}}" disabled>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kec" class="col-form-label font-label">Kecamatan:</label>
+                                                <input type="hidden" class="form-control" id="kec" name="kec" value="{{$data->kec}}">
+                                                <input type="text" class="form-control" id="kec" name="kec" value="{{$data->kec}}" disabled>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kab" class="col-form-label font-label">Kabupaten:</label>
+                                                <input type="hidden" class="form-control" id="kab" name="kab" value="{{$data->kab}}">
+                                                <input type="text" class="form-control" id="kab" name="kab" value="{{$data->kab}}" disabled>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="provinsi" class="col-form-label font-label">Provinsi:</label>
+                                                <input type="hidden" class="form-control" id="provinsi" name="provinsi" value="{{$data->provinsi}}">
+                                                <input type="text" class="form-control" id="provinsi" name="provinsi" value="{{$data->provinsi}}" disabled>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="negara" class="col-form-label font-label">Kewarganegaraan:</label>
+                                                <input type="hidden" class="form-control" id="negara" name="negara" value="{{$data->negara}}">
+                                                <input type="text" class="form-control" id="negara" name="negara" value="{{$data->negara}}" disabled>
+                                            </div>
+
+                                            <input type="hidden" name="status" value="meninggal" id="">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-12">
+                                                <label for="provinsi" class="col-form-label font-label">Keterangan:</label>
+                                                <textarea class="form-control" placeholder="Keterangan lainnya" name="keterangan">{{$data->keterangan}}</textarea>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            <!--End Modal Edit-->
+
+                            <!--Start Modal View-->
+                            <div class="modal fade" id="view{{$data->id_register}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">View Data Kelahiran</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                                    </div>
+                        
+                                    <div class="modal-body mx-4">                            
+
+                                        <div class="">
+                                            <h3 style="font-size: 3em; font-weight: 500;">{{ $data->nama }}</h3>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <div class="px-1">
+                                                <span for="nik" class="font-label" style="font-size: 17px;">No. KK:</span>
+                                                <span class="px-1 pt-1" style="font-size: 15px; font-weight: 500;">{{ $data->no_kk }}</span>
+                                            </div>
+    
+                                            <div class="px-1">
+                                                <span for="nik" class="font-label" style="font-size: 17px;">NIK:</span>
+                                                <span class="px-1 pt-1" style="font-size: 15px; font-weight: 500;">{{ $data->nik }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="px-1 mt-5" style="line-height: 1px;">
+                                            <span for="nik" class="font-label" style="font-size: 17px;">Detail:</span>
+                                            <hr>
+                                        </div>
+                                    
+                                        
+                                        <div class="row">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="tgl_lahir" class="col-form-label font-label">Tgl. Lahir:</label>
+                                                <h5>{{ date('d M, Y', strtotime($data->tgl_lahir)) }}<h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="gender" class="col-form-label font-label">Jenis Kelamin:</label>
+                                                <h5>{{ $data->gender }}</h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="gender" class="col-form-label font-label">Jenis Kelamin:</label>
+                                                <h5>
+                                                    @if ($data->value == '1')
+                                                        Aktif
+                                                        @else
+                                                        Nonaktif
+                                                    @endif
+                                                </h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="gender" class="col-form-label font-label">Desa:</label>
+                                                <h5>{{ $data->desa }}</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="banjar" class="col-form-label font-label">Banjar:</label>
+                                                <h5>{{$data->banjar}}</h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kec" class="col-form-label font-label">Kecamatan:</label>
+                                                <h5>{{$data->kec}}</h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kab" class="col-form-label font-label">Kabupaten:</label>
+                                                <h5>{{$data->kab}}</h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kab" class="col-form-label font-label">Provinsi:</label>
+                                                <h5>{{$data->provinsi}}</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="negara" class="col-form-label font-label">Kewarganegaraan:</label>
+                                                <h5>{{$data->negara}}</h5>
+                                            </div>
+
+                                            <div class="mb-1 col-md-9">
+                                                <label for="alamat" class="col-form-label font-label">Alamat:</label>
+                                                <h5>{{ $data->alamat }}</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-12">
+                                                <label for="provinsi" class="col-form-label font-label">Keterangan:</label>
+                                                <textarea class="form-control" placeholder="Keterangan lainnya" name="keterangan">{{$data->keterangan}}</textarea>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!--End Modal Edit-->
+
+
+                            // edit 
+    public function update(Request $request)
+    {
+        DB::table('pengajuan_surat')->where('id_register',$request->id_register)->update([
+            'nik'    => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+        DB::table('register')->where('id_register',$request->id_register)->update([
+            'nik'     => $request->nik,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'banjar'   => $request->banjar,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'keterangan'   => $request->keterangan,
+        ]);
+
+        // auth()->attempt($request->only('username', 'password'));
+
+        return redirect()->route('datakelahiran')->with('success', 'Berhasil Update User');
+    }
+    // end edit
+
+
+
+    <!--Start Modal konfirmasi-->
+    <div class="modal fade" id="konfirmasi{{$data->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Permohonan Surat</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                                    </div>
+                                    <form action="/suratpengajuankelahiran/store" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-body">                            
+                                        
+                                        <div class="mb-1">
+                                            <label for="NIK" class="col-form-label font-label">NIK:</label>
+                                            <input type="text" class="form-control" id="nik" name="nik" required placeholder="NIK anda" value="{{ $data->nik }}" readonly>
+                                        </div>
+
+                                        <div class="mb-1">
+                                            <label for="no_kk" class="col-form-label font-label">No KK:</label>
+                                            <input type="number" class="form-control" id="no_kk" name="no_kk" placeholder="No. KK anda" value="{{ $data->no_kk }}" readonly>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="mb-1 col-md-6">
+                                                <label for="nama" class="col-form-label font-label">Nama:</label>
+                                                <input type="text" class="form-control" id="nama" name="nama" required placeholder="Nama Lengkap" value="{{ $data->nama }}" readonly>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="tempat_lahir" class="col-form-label font-label">Tempat Lahir:</label>
+                                                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required placeholder="Tempat lahir" value="{{ $data->tempat_lahir }}" readonly>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="tgl_lahir" class="col-form-label font-label">Tgl. Lahir:</label>
+                                                <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="{{ $data->tgl_lahir }}" readonly>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="gender" class="col-form-label font-label">Jenis Kelamin:</label>
+                                                <input type="text" class="form-control" id="gender" name="gender" placeholder="Jenis Kelamin" value="{{ $data->gender }}" readonly>
+                                                {{-- <select name="gender" class="form-control">
+                                                    <option value="">--Pilih Jenis Kelamin--</option>
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select> --}}
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="agama" class="col-form-label font-label">Agama:</label>
+                                                <input type="text" class="form-control" id="agama" name="agama" placeholder="Agama" value="{{ $data->agama }}" readonly>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="Pekerjaan" class="col-form-label font-label">Pekerjaan:</label>
+                                                <input type="text" class="form-control" id="Pekerjaan" name="pekerjaan" placeholder="Pekerjaan" value="{{ $data->pekerjaan }}" readonly>
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="perkawinan" class="col-form-label font-label">Status Perkawinan:</label>
+                                                <input type="text" class="form-control" id="perkawinan" name="status_perkawinan" placeholder="Status Perkawinan" value="{{ $data->status_perkawinan }}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-none">
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kec" class="col-form-label font-label">Kecamatan:</label>
+                                                <input type="text" class="form-control" id="kec" name="kec" readonly value="{{ $data->kec }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="kab" class="col-form-label font-label">Kabupaten:</label>
+                                                <input type="text" class="form-control" id="kab" name="kab" readonly value="{{ $data->kab }}">  
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="desa" class="col-form-label font-label">Desa:</label>
+                                                <input type="text" class="form-control" id="desa" name="desa" readonly value="{{ $data->desa }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="provinsi" class="col-form-label font-label">Provinsi:</label>
+                                                <input type="text" class="form-control" id="provinsi" name="provinsi" readonly value="{{ $data->provinsi }}">
+                                            </div>
+
+                                            <div class="mb-1 col-md-3">
+                                                <label for="negara" class="col-form-label font-label">Kewarganegaraan:</label>
+                                                <input type="text" class="form-control" id="negara" name="negara" readonly value="{{ $data->negara }}">
+                                            </div>
+
+                                            <input type="text" name="jenis_surat" value="kelahiran" id="">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-1 col-md-12">
+                                                <label for="alamat" class="col-form-label font-label">Alamat:</label>
+                                                <textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat" readonly>{{ $data->alamat }}</textarea>
+                                            </div>
+
+                                            <div class="mb-1 col-md-12">
+                                                <label for="keterangan" class="col-form-label font-label">Keterangan:</label>
+                                                <textarea class="form-control" placeholder="Keterangan lainnya" name="keterangan">{{ $data->keterangan }}</textarea>
+                                            </div>
+                                        </div>               
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Selesaikan</button>
+                                    </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            <!--End Modal konfirmasi-->
+
+
+                            // insert
+    public function store1(Request $request){
+        $this->validate($request, [
+            'id' => 'required',
+            'kode_surat' => 'required',
+            'jenis_surat' => 'required',
+            'nik' => 'required',
+            'id_register' => 'required',
+            'no_kk' => 'required',
+            'nama' => 'required',
+            'tgl_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'gender' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'desa' => 'required',
+            'kec' => 'required',
+            'kab' => 'required',
+            'provinsi' => 'required',
+            'negara' => 'required',
+            'status_perkawinan' => 'required',
+            'pekerjaan' => 'required',
+            'keterangan' => 'nullable',
+            'created_at' => 'required',
+        ]);
+
+        $permohonan = DB::table('surat_permohonan')->insert([
+            'id' => $request->id,
+            'kode_surat' => $request->kode_surat,
+            'jenis_surat' => $request->jenis_surat,
+            'nik'     => $request->nik,
+            'agama'     => $request->agama,
+            'id_register'     => $request->id_register,
+            'no_kk'   => $request->no_kk,
+            'nama'   => $request->nama,
+            'tgl_lahir'   => $request->tgl_lahir,
+            'tempat_lahir'   => $request->tempat_lahir,
+            'gender'   => $request->gender,
+            'alamat'   => $request->alamat,
+            'pekerjaan'   => $request->pekerjaan,
+            'desa'   => $request->desa,
+            'kec'   => $request->kec,
+            'kab'   => $request->kab,
+            'provinsi'   => $request->provinsi,
+            'negara'   => $request->negara,
+            'status_perkawinan'   => $request->status_perkawinan,
+            'keterangan'   => $request->keterangan,
+            'created_at'   => $request->created_at,
+        ]);
+
+         
+        if($permohonan){
+            //redirect dengan pesan sukses
+            return redirect()->route('permohonankelahiran')->with(['success' => 'Berhasil Ditambahkan!!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('suratpengajuankelahiran')->with(['error' => 'Gagal Ditambahkan!']);
+        }
+    }
+    // insert end
